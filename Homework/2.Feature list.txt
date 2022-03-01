@@ -1,0 +1,19 @@
+Feature List:
+	Student:
+		- Display all students - works
+		- Add a new student - works
+		- Remove a student - works
+		- Update a student's data - works
+	Assignment:
+		- Display all assignments - works
+		- Add a new assignment - works
+		- Remove an assignment - works
+		- Update deadline of an assignment - does not work
+	Grade:
+		- Display all grades -works
+		- Add a grade to a student's assignment - does not work 
+	Exit:
+		-Exit application - works
+	
+
+	

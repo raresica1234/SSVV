@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Entitati>
-    <tema ID="1">
-        <Descriere>File</Descriere>
-        <Deadline>7</Deadline>
-        <Startline>6</Startline>
-    </tema>
     <tema ID="2">
         <Descriere>XML</Descriere>
         <Deadline>8</Deadline>
@@ -19,5 +14,10 @@
         <Descriere>aijdaij</Descriere>
         <Deadline>3</Deadline>
         <Startline>1</Startline>
+    </tema>
+    <tema ID="5">
+        <Descriere>SSVV</Descriere>
+        <Deadline>10</Deadline>
+        <Startline>8</Startline>
     </tema>
 </Entitati>

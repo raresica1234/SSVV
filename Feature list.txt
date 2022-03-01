@@ -1,5 +1,0 @@
-Feature list
-- CRUD for students
-- CRUD for lab homeworks
-- print all grades
-- 
