@@ -5,12 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AddStudentTest {
 	@Test
-	void testAddStudentEc() {
+	void testAddStudentEC() {
 		assertEquals(true, false);
 	}
 
 	@Test
-	void testAddStudentBd() {
+	void testAddStudentBVA() {
 		assertEquals(true, false);
 	}
 }
