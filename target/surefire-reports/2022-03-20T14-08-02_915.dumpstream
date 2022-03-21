@@ -1,0 +1,4 @@
+# Created at 2022-03-20T14:08:05.974
+Boot Manifest-JAR contains absolute paths in classpath 'D:\Facultte\SSVV\Cringe-Team\SSVV\Lab2\MaxPointsParticipants\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+
