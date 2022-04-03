@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AddStudentTest {
 	@Test
-	public void testAddStudentEC() {
+	void testAddStudentEC() {
 		Student student1 = new Student("0", "Ion", 23);
 		Student student2 = new Student("2", "Maria", 922);
 		Student student3 = new Student("127373212", "Test", 1381);
@@ -31,7 +31,7 @@ public class AddStudentTest {
 	}
 
 	@Test
-	public void testAddStudentBVA() {
+	void testAddStudentBVA() {
 		Student student1 = new Student("0", "Ion", 109);
 		Student student2 = new Student("0", "Ion", 110);
 		Student student3 = new Student("0", "Ion", 111);
