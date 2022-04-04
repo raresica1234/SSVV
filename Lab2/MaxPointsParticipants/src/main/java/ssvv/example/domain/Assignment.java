@@ -2,13 +2,13 @@ package ssvv.example.domain;
 
 import java.util.Objects;
 
-public class Tema implements HasID<String> {
+public class Assignment implements HasID<String> {
     private String idTema;
     private String descriere;
     private int deadline;
     private int startline;
 
-    public Tema(String idTema, String descriere, int deadline, int startline) {
+    public Assignment(String idTema, String descriere, int deadline, int startline) {
         this.idTema = idTema;
         this.descriere = descriere;
         this.deadline = deadline;
@@ -43,8 +43,8 @@ public class Tema implements HasID<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Tema tema = (Tema) o;
-        return Objects.equals(idTema, tema.idTema);
+        Assignment assignment = (Assignment) o;
+        return Objects.equals(idTema, assignment.idTema);
     }
 
     @Override

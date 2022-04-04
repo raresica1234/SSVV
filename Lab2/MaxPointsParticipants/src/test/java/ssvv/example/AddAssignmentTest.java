@@ -2,8 +2,7 @@ package ssvv.example;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import ssvv.example.domain.Student;
-import ssvv.example.domain.Tema;
+import ssvv.example.domain.Assignment;
 import ssvv.example.repository.AbstractCRUDRepository;
 import ssvv.example.repository.TemaRepository;
 import ssvv.example.validation.TemaValidator;
@@ -13,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AddAssignmentTest {
 
-	static AbstractCRUDRepository<String, Tema> temaRepo;
+	static AbstractCRUDRepository<String, Assignment> temaRepo;
 
 	@BeforeAll
 	static void init() {
@@ -23,39 +22,39 @@ public class AddAssignmentTest {
 	@Test
 	void path1() {
 		assertThrows(ValidationException.class, () -> {
-			temaRepo.save(new Tema("", "", 0, 0));
+			temaRepo.save(new Assignment("", "", 0, 0));
 		});
 	}
 
 	@Test
 	void path2() {
 		assertThrows(ValidationException.class, () -> {
-			temaRepo.save(new Tema("5", "", 0, 0));
+			temaRepo.save(new Assignment("5", "", 0, 0));
 		});
 	}
 
 	@Test
 	void path3() {
 		assertThrows(ValidationException.class, () -> {
-			temaRepo.save(new Tema("5", "a", 0, 0));
+			temaRepo.save(new Assignment("5", "a", 0, 0));
 		});
 	}
 
 	@Test
 	void path4() {
 		assertThrows(ValidationException.class, () -> {
-			temaRepo.save(new Tema("5", "a", 4, 0));
+			temaRepo.save(new Assignment("5", "a", 4, 0));
 		});
 	}
 
 	@Test
 	void path5() {
-		Tema tema = new Tema("5", "a", 4, 2);
+		Assignment assignment = new Assignment("5", "a", 4, 2);
 		assertDoesNotThrow(() -> {
-			temaRepo.save(tema);
+			temaRepo.save(assignment);
 		});
 
-		assertEquals(temaRepo.findOne(tema.getID()), tema);
+		assertEquals(temaRepo.findOne(assignment.getID()), assignment);
 	}
 
 }

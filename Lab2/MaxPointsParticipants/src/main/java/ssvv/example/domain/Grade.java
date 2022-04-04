@@ -1,12 +1,14 @@
 package ssvv.example.domain;
 
-public class Nota implements HasID<Pair<String, String>> {
+import java.util.Objects;
+
+public class Grade implements HasID<Pair<String, String>> {
     Pair<String, String> idNota;
     private double nota;
     private int saptamanaPredare;
     private String feedback;
 
-    public Nota(Pair<String, String> idNota, double nota, int saptamanaPredare, String feedback) {
+    public Grade(Pair<String, String> idNota, double nota, int saptamanaPredare, String feedback) {
         this.idNota = idNota;
         this.nota = nota;
         this.saptamanaPredare = saptamanaPredare;
@@ -30,6 +32,14 @@ public class Nota implements HasID<Pair<String, String>> {
     public String getFeedback() { return feedback; }
 
     public void setFeedback(String feedback) { this.feedback = feedback; }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Grade grade = (Grade) obj;
+        return idNota.equals(grade.idNota) && Objects.equals(nota, grade.nota) && Objects.equals(saptamanaPredare, grade.saptamanaPredare) && feedback.equals(grade.feedback);
+    }
 
     @Override
     public String toString() {
