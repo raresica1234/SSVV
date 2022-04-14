@@ -1,18 +1,18 @@
 package ssvv.example.validation;
-import ssvv.example.domain.Nota;
+import ssvv.example.domain.Grade;
 
-public class NotaValidator implements Validator<Nota> {
-    public void validate(Nota nota) throws ValidationException {
-        if (nota.getID().getObject1() == null || nota.getID().equals("")) {
+public class NotaValidator implements Validator<Grade> {
+    public void validate(Grade grade) throws ValidationException {
+        if (grade.getID().getObject1() == null || grade.getID().equals("")) {
             throw new ValidationException("ID Student invalid! \n");
         }
-        if (nota.getID().getObject2() == null || nota.getID().equals("")) {
+        if (grade.getID().getObject2() == null || grade.getID().equals("")) {
             throw new ValidationException("ID Tema invalid! \n");
         }
-        if (nota.getNota() < 0 || nota.getNota() > 10) {
+        if (grade.getNota() < 0 || grade.getNota() > 10) {
             throw new ValidationException("Nota invalida! \n");
         }
-        if (nota.getSaptamanaPredare() < 0) {
+        if (grade.getSaptamanaPredare() < 0) {
             throw new ValidationException("Saptamana de predare invalida! \n");
         }
     }

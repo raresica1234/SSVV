@@ -1,14 +1,14 @@
 package ssvv.example.repository;
 
-import ssvv.example.domain.Tema;
+import ssvv.example.domain.Assignment;
 import ssvv.example.validation.*;
 
 import java.io.*;
 import java.util.stream.Collectors;
 
-public class TemaFileRepository extends AbstractFileRepository<String, Tema> {
+public class TemaFileRepository extends AbstractFileRepository<String, Assignment> {
 
-    public TemaFileRepository(Validator<Tema> validator, String filename) {
+    public TemaFileRepository(Validator<Assignment> validator, String filename) {
         super(validator, filename);
         loadFromFile();
     }
@@ -17,9 +17,9 @@ public class TemaFileRepository extends AbstractFileRepository<String, Tema> {
         try (BufferedReader buffer = new BufferedReader(new FileReader(filename))) {
             buffer.lines().collect(Collectors.toList()).forEach(line -> {
                 String[] result = line.split("#");
-                Tema tema = new Tema(result[0], result[1], Integer.parseInt(result[2]), Integer.parseInt(result[3]));
+                Assignment assignment = new Assignment(result[0], result[1], Integer.parseInt(result[2]), Integer.parseInt(result[3]));
                 try {
-                    super.save(tema);
+                    super.save(assignment);
                 } catch (ValidationException ve) {
                     ve.printStackTrace();
                 }
@@ -29,9 +29,9 @@ public class TemaFileRepository extends AbstractFileRepository<String, Tema> {
         }
     }
 
-    protected void writeToFile(Tema tema) {
+    protected void writeToFile(Assignment assignment) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, true))) {
-            bw.write(tema.getID() + "#" + tema.getDescriere() + "#" + tema.getDeadline() + "#" + tema.getStartline() + "\n");
+            bw.write(assignment.getID() + "#" + assignment.getDescriere() + "#" + assignment.getDeadline() + "#" + assignment.getStartline() + "\n");
         }
         catch(IOException ioe) {
             ioe.printStackTrace();

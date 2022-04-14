@@ -1,6 +1,6 @@
 package ssvv.example.repository;
 
-import ssvv.example.domain.Nota;
+import ssvv.example.domain.Grade;
 import ssvv.example.domain.Pair;
 import ssvv.example.domain.Student;
 import ssvv.example.validation.StudentValidator;
@@ -13,37 +13,37 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class NotaXMLRepository extends AbstractXMLRepository<Pair<String, String>, Nota> {
+public class NotaXMLRepository extends AbstractXMLRepository<Pair<String, String>, Grade> {
 
-    public NotaXMLRepository(Validator<Nota> validator, String XMLfilename) {
+    public NotaXMLRepository(Validator<Grade> validator, String XMLfilename) {
         super(validator, XMLfilename);
         loadFromXmlFile();
     }
 
-    protected Element getElementFromEntity(Nota nota, Document XMLdocument) {
+    protected Element getElementFromEntity(Grade grade, Document XMLdocument) {
         Element element = XMLdocument.createElement("nota");
-        element.setAttribute("IDStudent", nota.getID().getObject1());
-        element.setAttribute("IDTema", nota.getID().getObject2());
+        element.setAttribute("IDStudent", grade.getID().getObject1());
+        element.setAttribute("IDTema", grade.getID().getObject2());
 
-        element.appendChild(createElement(XMLdocument, "Nota", String.valueOf(nota.getNota())));
-        element.appendChild(createElement(XMLdocument, "SaptamanaPredare", String.valueOf(nota.getSaptamanaPredare())));
-        element.appendChild(createElement(XMLdocument, "Feedback", nota.getFeedback()));
+        element.appendChild(createElement(XMLdocument, "Nota", String.valueOf(grade.getNota())));
+        element.appendChild(createElement(XMLdocument, "SaptamanaPredare", String.valueOf(grade.getSaptamanaPredare())));
+        element.appendChild(createElement(XMLdocument, "Feedback", grade.getFeedback()));
 
         return element;
     }
 
-    protected Nota getEntityFromNode(Element node) {
+    protected Grade getEntityFromNode(Element node) {
         String IDStudent = node.getAttributeNode("IDStudent").getValue();
         String IDTema= node.getAttributeNode("IDTema").getValue();
         double nota = Double.parseDouble(node.getElementsByTagName("Nota").item(0).getTextContent());
         int saptamanaPredare = Integer.parseInt(node.getElementsByTagName("SaptamanaPredare").item(0).getTextContent());
         String feedback = node.getElementsByTagName("Feedback").item(0).getTextContent();
 
-        return new Nota(new Pair(IDStudent, IDTema), nota, saptamanaPredare, feedback);
+        return new Grade(new Pair(IDStudent, IDTema), nota, saptamanaPredare, feedback);
     }
 
-    public void createFile(Nota notaObj) {
-        String idStudent = notaObj.getID().getObject1();
+    public void createFile(Grade gradeObj) {
+        String idStudent = gradeObj.getID().getObject1();
         StudentValidator sval = new StudentValidator();
         TemaValidator tval = new TemaValidator();
         StudentFileRepository srepo = new StudentFileRepository(sval, "studenti.txt");

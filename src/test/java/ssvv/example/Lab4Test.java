@@ -45,7 +45,7 @@ public class Lab4Test {
 
 	@Test
 	void testAddAssignment() {
-		int result = service.saveAssigment("0", "???????????????", 3, 2);
+		int result = service.saveAssignment("0", "???????????????", 3, 2);
 
 		assertEquals(1, result);
 
@@ -55,7 +55,7 @@ public class Lab4Test {
 	@Test
 	void testAddGrade() {
 		service.saveStudent("0", "Comsa Filip", 932);
-		service.saveAssigment("0", "???????????????", 3, 2);
+		service.saveAssignment("0", "???????????????", 3, 2);
 
 		int result = service.saveGrade("0", "0", 5, 2, "pune mana si invata mai baiete");
 
@@ -71,7 +71,7 @@ public class Lab4Test {
 		Grade grade = new Grade(new Pair<>("0", "0"), 7.5, 2, "pune mana si invata mai baiete");
 
 		assertEquals(1, service.saveStudent("0", "Comsa Filip", 932));
-		assertEquals(1, service.saveAssigment("0", "???????????????", 3, 2));
+		assertEquals(1, service.saveAssignment("0", "???????????????", 3, 2));
 		assertEquals(1, service.saveGrade("0", "0", 5, 2, "pune mana si invata mai baiete"));
 
 		assertEquals(service.findAllStudents().iterator().next(), student);

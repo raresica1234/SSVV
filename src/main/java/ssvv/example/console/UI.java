@@ -38,13 +38,13 @@ public class UI {
     }
 
     public void uiPrintAllTeme() {
-        for(Tema tema : service.findAllTeme()) {
-            System.out.println(tema);
+        for(Assignment assignment : service.findAllAssignments()) {
+            System.out.println(assignment);
         }
     }
 
     public void uiPrintAllNote() {
-        for(Nota note : service.findAllNote()) {
+        for(Grade note : service.findAllGrades()) {
             System.out.println(note);
         }
     }
@@ -84,7 +84,7 @@ public class UI {
         System.out.println("Introduceti saptamana startline a temei: ");
         int startline = scanner.nextInt();
 
-        if (service.saveTema(id, descriere, deadline, startline) != 0) {
+        if (service.saveAssignment(id, descriere, deadline, startline) != 0) {
             System.out.println("Tema adaugata cu succes! \n");
         }
         else {
@@ -112,9 +112,9 @@ public class UI {
         System.out.println("Dati un feedback temei: ");
         String feedback = scanner.nextLine();
 
-        int result = service.saveNota(idStudent, idTema, valNota, predata, feedback);
+        int result = service.saveGrade(idStudent, idTema, valNota, predata, feedback);
         if (result == 1) {
-            service.createStudentFile(idStudent, idTema);
+//            service.createStudentFile(idStudent, idTema);
             System.out.println("Nota adaugata cu succes! \n");
         }
         else if (result == 0) {
@@ -145,7 +145,7 @@ public class UI {
         System.out.println("Introduceti ID-ul temei: ");
         String id = scanner.nextLine();
 
-        if (service.deleteTema(id) != 0) {
+        if (service.deleteAssignment(id) != 0) {
             System.out.println("Tema stearsa cu succes! \n");
         }
         else {

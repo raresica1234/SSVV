@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Entitati>
-    <tema ID="2">
+    <assignment ID="2">
         <Descriere>XML</Descriere>
         <Deadline>8</Deadline>
         <Startline>7</Startline>
-    </tema>
-    <tema ID="3">
+    </assignment>
+    <assignment ID="3">
         <Descriere>gui</Descriere>
         <Deadline>9</Deadline>
         <Startline>7</Startline>
-    </tema>
-    <tema ID="4">
+    </assignment>
+    <assignment ID="4">
         <Descriere>aijdaij</Descriere>
         <Deadline>3</Deadline>
         <Startline>1</Startline>
-    </tema>
-    <tema ID="5">
+    </assignment>
+    <assignment ID="5">
         <Descriere>SSVV</Descriere>
         <Deadline>10</Deadline>
         <Startline>8</Startline>
-    </tema>
+    </assignment>
 </Entitati>
